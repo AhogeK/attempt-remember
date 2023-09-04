@@ -1,11 +1,29 @@
 @import './base.css';
 
 #app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.view {
     max-width: 1280px;
     margin: 0 auto;
     padding: 2rem;
-
+    height: 100%;
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
     font-weight: normal;
+}
+
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+    width: 100%;
+    margin-top: auto;
 }
 
 a,
@@ -23,11 +41,10 @@ a,
 
 @media (min-width: 1024px) {
     body {
-        display: flex;
         place-items: center;
     }
 
-    #app {
+    .view {
         display: grid;
         grid-template-columns: 1fr 1fr;
         padding: 0 2rem;
