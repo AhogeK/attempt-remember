@@ -17,28 +17,6 @@
     font-weight: normal;
 }
 
-.footer {
-    background-color: #333;
-    color: #fff;
-    padding: 1rem;
-    text-align: center;
-    width: 100%;
-    margin-top: auto;
-}
-
-a,
-.green {
-    text-decoration: none;
-    color: hsla(160, 100%, 37%, 1);
-    transition: 0.4s;
-}
-
-@media (hover: hover) {
-    a:hover {
-        background-color: hsla(160, 100%, 37%, 0.2);
-    }
-}
-
 @media (min-width: 1024px) {
     body {
         place-items: center;

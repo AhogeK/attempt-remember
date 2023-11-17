@@ -5,7 +5,6 @@ import { createPinia } from 'pinia'
 
 import App from './App.vue'
 import router from './router'
-import WelcomeItem from '@/components/WelcomeItem.vue'
 
 const app = createApp(App)
 
@@ -17,7 +16,5 @@ app.config.errorHandler = (err, vm, info) => {
   console.log('Vue instance:', vm)
   console.log('Error info:', info)
 }
-
-app.component('WelcomeItem', WelcomeItem)
 
 app.mount('#app')
