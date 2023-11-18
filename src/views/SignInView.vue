@@ -11,7 +11,7 @@ function signIn() {
 
 <template>
   <div class="box">
-    <h1 class="title">登入你得账号</h1>
+    <h1 class="title">登入你的账号</h1>
     <form @submit.prevent="signIn">
       <span class="field-title">邮箱地址</span>
       <br />
