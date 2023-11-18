@@ -37,7 +37,7 @@ function signIn() {
 
   .title {
     font-weight: bold;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
   }
 
   .field-title {
