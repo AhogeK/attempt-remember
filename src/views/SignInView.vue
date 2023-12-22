@@ -12,99 +12,189 @@ function signIn() {
 <template>
   <div class="box">
     <h1 class="title">登入你的账号</h1>
-    <form @submit.prevent="signIn">
-      <span class="field-title">邮箱地址</span>
-      <br />
-      <input v-model="email" class="sign-input" />
-      <div class="password-title">
-        <span class="field-title">密码</span>
-        <span class="forget-password field-title">忘记密码？</span>
-      </div>
-      <input v-model="password" class="sign-input" type="password" />
-      <br />
-      <button class="btn">登入</button>
-    </form>
+    <div class="form-box">
+      <form class="sign-form" @submit.prevent="signIn">
+        <div>
+          <span class="field-title">邮箱地址</span>
+          <div class="input-box">
+            <input
+              v-model="email"
+              autocomplete="email"
+              class="sign-input"
+              placeholder="请输入邮箱地址"
+              required
+              type="email"
+            />
+          </div>
+        </div>
+        <div>
+          <div class="password-title">
+            <span class="field-title">密码</span>
+            <span class="forget-password field-title">忘记密码？</span>
+          </div>
+          <div class="input-box">
+            <input
+              v-model="password"
+              autocomplete="current-password"
+              class="sign-input"
+              placeholder="请输入密码"
+              required
+              type="password"
+            />
+          </div>
+        </div>
+        <div>
+          <button class="btn">登入</button>
+        </div>
+      </form>
+      <p class="not-a-member">还不是用户？<a class="hyperlink" href="#">快来注册吧！</a></p>
+    </div>
   </div>
 </template>
 
 <style scoped>
 .box {
   display: flex;
+  min-height: 100vh;
+  flex-grow: 1;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  height: 100vh;
+  padding: 3rem 1.5rem;
 
   .title {
+    margin-top: 2.5rem;
+    text-align: center;
+    font-size: 1.5rem;
     font-weight: bold;
-    margin-bottom: 30px;
+    line-height: 2.25rem;
+    letter-spacing: -0.05em;
+    color: var(--vt-c-text-1);
   }
 
-  .field-title {
-    font-weight: bold;
-  }
+  .form-box {
+    margin-top: 2.5rem;
 
-  .password-title {
-    display: flex;
-    justify-content: space-between;
-    width: 300px;
-  }
+    .sign-form {
+      > *:not(:first-child) {
+        margin-top: 1.5rem;
+      }
 
-  .forget-password {
-    color: #6664e9;
-    cursor: pointer;
-  }
+      .field-title {
+        display: block;
+        font-size: 0.875rem;
+        font-weight: 500;
+        line-height: 1.5rem;
+        color: var(--vt-c-text-1);
+      }
 
-  .forget-password:hover {
-    color: #838cf1;
-  }
+      .password-title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
 
-  .sign-input {
-    padding: 10px;
-    border-radius: 4px;
-    font-size: 16px;
-    width: 300px;
-    height: 30px;
-    border: 1px solid var(--color-border);
-    margin-bottom: 10px;
-    margin-top: 10px;
-  }
+        .forget-password {
+          font-weight: 600;
+          color: var(--vt-c-theme);
+          cursor: pointer;
+        }
 
-  .sign-input:focus-visible {
-    outline: none !important;
-    border: 2px solid #6664e9;
-  }
+        .forget-password:hover {
+          color: var(--vt-c-theme-light);
+        }
+      }
 
-  .btn {
-    width: 300px;
-    height: 30px;
-    color: #fff;
-    background-color: #6664e9;
-    font-weight: bold;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 30px;
-  }
+      .input-box {
+        margin-top: 0.5rem;
 
-  .btn:hover {
-    background-color: #838cf1;
+        .sign-input {
+          display: block;
+          width: 100%;
+          border-radius: 0.375rem;
+          border: 0;
+          padding: 0.375rem 0.75rem;
+          color: var(--vt-c-text-1);
+          box-shadow:
+            inset 0 0 0 0 #fff,
+            inset 0 0 0 calc(1px + 0px) rgb(209 213 219 / 1),
+            0 1px 2px 0 rgb(0 0 0 / 0.05);
+
+          &:focus-visible {
+            outline: none !important;
+            box-shadow: inset 0 0 0 2px var(--vt-c-theme);
+          }
+
+          &::placeholder {
+            color: var(--vt-c-text-3);
+            font-size: 0.75rem;
+          }
+        }
+      }
+
+      .btn {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        border-radius: 0.375rem;
+        padding: 0.375rem 0.75rem;
+        font-size: 0.875rem;
+        font-weight: 600;
+        line-height: 1.5rem;
+        color: #fff;
+        background-color: var(--vt-c-theme);
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: var(--vt-c-theme-light);
+        }
+
+        &:focus-visible {
+          outline: 2px solid var(--vt-c-theme);
+          outline-offset: 2px;
+        }
+      }
+    }
+
+    .not-a-member {
+      margin-top: 2.5rem;
+      text-align: center;
+      font-size: 0.875rem;
+      color: var(--vt-c-text-2);
+
+      .hyperlink {
+        font-weight: 600;
+        line-height: 1.5rem;
+        color: var(--vt-c-theme);
+
+        &:hover {
+          color: var(--vt-c-theme-light);
+        }
+      }
+    }
   }
 }
 
-@media (prefers-color-scheme: dark) {
+@media (min-width: 1024px) {
   .box {
-    color: #fff;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
 
-    .title {
-      color: #fff;
-    }
+@media (min-width: 640px) {
+  .title {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: 24rem;
+  }
 
-    .sign-input {
-      background-color: var(--vt-c-black-soft);
-      color: #fff;
-    }
+  .form-box {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: 24rem;
   }
 }
 </style>
