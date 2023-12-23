@@ -6,7 +6,9 @@ import ThemeSwitchToggle from '@/components/ThemeSwitchToggle.vue'
     <div>
       <slot></slot>
     </div>
-    <ThemeSwitchToggle class="theme-switch-toggle">这里是主题切换区</ThemeSwitchToggle>
+    <div>
+      <ThemeSwitchToggle class="theme-switch-toggle" />
+    </div>
   </div>
 </template>
 <style scoped>

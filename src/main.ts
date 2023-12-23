@@ -1,5 +1,3 @@
-import './style/index.css'
-
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 
@@ -17,4 +15,5 @@ app.config.errorHandler = (err, vm, info) => {
   console.log('Error info:', info)
 }
 
+// 创建Vue应用
 app.mount('#app')

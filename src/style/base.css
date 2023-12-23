@@ -19,7 +19,6 @@ body {
   direction: ltr;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
-  transition: color .5s, background-color .5s;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-wrap: break-word;
@@ -219,6 +218,10 @@ fieldset {
   flex-grow: 1;
   align-items: center;
   font-weight: normal;
+}
+
+.transition-colors body {
+  transition: color .5s, background-color .5s;
 }
 
 @media (min-width: 1024px) {
